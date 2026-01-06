@@ -9,10 +9,10 @@ export default function DashboardPage() {
 
   return (
     <div>
-      {/* ✅ Tabs always visible */}
+      
       <SalesTabs onChange={setActiveTab} />
 
-      {/* ✅ Content changes based on tab */}
+      {/* Content changes based on tab */}
       {activeTab === "Sales" && (
         <SalesTable setSelectedSale={setSelectedSale} />
       )}
