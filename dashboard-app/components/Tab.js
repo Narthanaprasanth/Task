@@ -1,11 +1,10 @@
-import React from 'react'
+import SalesTable from "./SalesTable"
 
-const Tab = () => {
+export default function Tab({ setSelectedSale }) {
   return (
-    <div className='Tab-content'>
-     
-    </div>
+    <>
+    
+      <SalesTable setSelectedSale={setSelectedSale} />
+    </>
   )
 }
-
-export default Tab

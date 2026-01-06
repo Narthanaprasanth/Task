@@ -1,30 +1,45 @@
-import Sidebar from "@/components/Sidebar";
-import "./globals.css";
-import Topbar from "@/components/Topbar";
-import Company from "@/components/Company";
-import Panel from "@/components/Panel";
-import Tab from "@/components/Tab";
+"use client"
 
-export default function RootLayout() {
+import Sidebar from "@/components/Sidebar"
+import Topbar from "@/components/Topbar"
+import Company from "@/components/Company"
+import Panel from "@/components/Panel"
+import { SaleProvider, useSale } from "@/context/SaleContext"
+import "./globals.css"
+
+function LayoutContent({ children }) {
+  const { selectedSale } = useSale()
+
   return (
-    <html lang="en">
-      <body >
-        <div className="app-layout">
-          <Sidebar/>
-          <div className="div-area">
-          <Topbar/>
-          <div className="content-area">
-            <div className="first">
-              <Company/>
-              <Tab/>
-            </div>
-            <div className="second">
-              <Panel/>
-            </div>
+    <div className="app-layout">
+      <Sidebar />
+
+      <div className="div-area">
+        <Topbar />
+
+        <div className="content-area">
+          <div className="first">
+            <Company />
+            {children}
           </div>
+
+          <div className="second">
+            <Panel sale={selectedSale} />
           </div>
         </div>
+      </div>
+    </div>
+  )
+}
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <body>
+        <SaleProvider>
+          <LayoutContent>{children}</LayoutContent>
+        </SaleProvider>
       </body>
     </html>
-  );
+  )
 }

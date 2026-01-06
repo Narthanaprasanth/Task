@@ -1,66 +1,26 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client"
+import { useState } from "react"
+import SalesTabs from "@/components/SalesTabs"
+import SalesTable from "@/components/SalesTable"
 
-export default function Home() {
+export default function DashboardPage() {
+  const [activeTab, setActiveTab] = useState("Sales")
+  const [selectedSale, setSelectedSale] = useState(null)
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.js file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+    <div>
+      {/* ✅ Tabs always visible */}
+      <SalesTabs onChange={setActiveTab} />
+
+      {/* ✅ Content changes based on tab */}
+      {activeTab === "Sales" && (
+        <SalesTable setSelectedSale={setSelectedSale} />
+      )}
+
+      {activeTab === "Activities" && <div>Activities content</div>}
+      {activeTab === "Contacts" && <div>Contacts content</div>}
+      {activeTab === "Projects" && <div>Projects content</div>}
+      {activeTab === "Requests" && <div>Requests content</div>}
     </div>
-  );
+  )
 }

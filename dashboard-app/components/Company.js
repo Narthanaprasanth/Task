@@ -14,8 +14,11 @@ export default function Company() {
         </div>
 
         <div className="company-actions">
-          <FiEdit2 />
-          <FiMoreVertical />
+          <div className="edit">
+            <FiEdit2 className="move" />
+          </div>
+          <div><FiMoreVertical /></div>
+          
         </div>
       </div>
 
