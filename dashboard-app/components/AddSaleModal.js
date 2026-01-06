@@ -38,7 +38,7 @@ export default function AddSaleModal({ onClose, onAdded }) {
         value={form.name}
         onChange={handleChange}
       />
-<br></br>
+
       <select
         name="status"
         value={form.status}
@@ -49,21 +49,21 @@ export default function AddSaleModal({ onClose, onAdded }) {
         <option>Lost</option>
         <option>Stalled</option>
       </select>
-<br></br>
+
       <input
         type="number"
         name="amount"
         placeholder="Amount"
         value={form.amount}
         onChange={handleChange}
-      /><br></br>
+      />
 <label>Stage</label>
       <input
         name="stage"
         placeholder="Stage"
         value={form.stage}
         onChange={handleChange}
-      /><br></br>
+      />
 <label>Sale Date</label>
       <input
         type="date"
@@ -72,7 +72,7 @@ export default function AddSaleModal({ onClose, onAdded }) {
         onChange={handleChange}
         
       />
-<br></br>
+
 <label>Next Activity</label>
       <input
         type="date"

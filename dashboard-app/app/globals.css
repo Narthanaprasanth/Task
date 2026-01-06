@@ -59,6 +59,7 @@ body{
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
+  margin-left: 70px;
 }
 
 /* LEFT */
@@ -150,6 +151,7 @@ body{
 .content-area{
   display: flex;
   flex-direction: row;
+  margin-left: 70px;
 }
 .first{
   display: flex;
@@ -512,4 +514,15 @@ body{
 }
 .company-tabs{
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.sidebar {
+  position: fixed; /* or sticky */
+ 
+ 
+  height: 100vh; /* full viewport height */
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ 
 }
